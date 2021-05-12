@@ -1,10 +1,17 @@
 import React from "react";
+import {useHistory} from "react-router-dom";
 import "./scss/under.scss";
 
 const Under = () => {
+    const history = useHistory();
+
+    const handleAccountColumn = () => {
+        history.push("/sign-in")
+    }
+    
     return (
         <header className="MB-header-under">
-            <div className="column">
+            <div className="column" onClick={() => history.push("/")}>
                 <i className="fas fa-home"></i>
                 <h4>Home</h4>
             </div>
@@ -24,7 +31,7 @@ const Under = () => {
                 <h4>Wishlist</h4>
             </div>
 
-            <div className="column">
+            <div className="column" onClick={handleAccountColumn}>
                 <i className="fas fa-user-circle"></i>
                 <h4>Account</h4>
             </div>

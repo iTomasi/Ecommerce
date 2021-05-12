@@ -1,0 +1,99 @@
+$MB_SIZE: 17px;
+$PURPLE_COLOR: #6C28FE;
+
+.iw_form {
+
+    width: 90%;
+    margin: auto;
+    font-size: $MB_SIZE;
+    
+    .formSection {
+        .labelTitle {
+            display: block;
+            margin: 0 0 10px 20px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: $MB_SIZE;
+            border: none;
+            outline: none;
+        }
+
+        .input:focus {
+            outline: 2px solid $PURPLE_COLOR;
+        }
+
+        .inputIcon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #FFFFFF;
+            padding: 10px 20px;
+
+            input {
+                border: none;
+                outline: none;
+                width: 90%;
+                font-size: $MB_SIZE;
+            }
+        }
+
+        .inputIcon:focus-within {
+            outline: 2px solid $PURPLE_COLOR;
+        }
+
+        .inputNumber {
+            display: flex;
+            justify-content: space-between;
+
+            select, input {
+                padding: 10px 20px;
+                font-size: $MB_SIZE;
+                border: none;
+                outline: none;
+            }
+
+            select {
+                width: 43%;
+            }
+
+            input {
+                width: 54%;
+            }
+        }
+
+        margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        min-height: 45px;
+        font-size: $MB_SIZE;
+        background: $PURPLE_COLOR;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #f9f9f9;
+    }
+}
+
+.forgotPassword {
+    display: block;
+    text-align: center;
+    margin: 30px;
+    text-decoration: none;
+    color: $PURPLE_COLOR;
+}
+
+.dontHaveAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        color: $PURPLE_COLOR;
+    }
+}
