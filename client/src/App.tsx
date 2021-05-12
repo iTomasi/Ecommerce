@@ -8,6 +8,7 @@ import Header from "./components/header/Header";
 import Home from "./views/Home";
 import Login from "./views/Login";
 import Register from "./views/Register";
+import Category from "./views/Category";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Route exact path="/" component={Home}/>
       <Route exact path="/sign-in" component={Login}/>
       <Route exact path="/sign-up" component={Register}/>
+      <Route exact path="/category" component={Category}/>
     </Switch>
     </div>
     </>

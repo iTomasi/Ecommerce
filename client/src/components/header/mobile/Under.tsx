@@ -16,7 +16,7 @@ const Under = () => {
                 <h4>Home</h4>
             </div>
 
-            <div className="column">
+            <div className="column" onClick={() => history.push("/category")}>
                 <i className="fas fa-align-center"></i>
                 <h4>Category</h4>
             </div>

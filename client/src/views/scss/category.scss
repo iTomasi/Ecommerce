@@ -1,0 +1,7 @@
+.grid__category {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    grid-auto-rows: 400px;
+    gap: 10px;
+    justify-content: center;
+}
