@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useHistory} from "react-router-dom";
 import path from "path";
 import Axios from "axios";
 import config from "../config/config";
@@ -6,6 +7,7 @@ import code_numbers from "../config/code_numbers.json";
 import "./scss/form.scss";
 
 const Register = () => {
+    const history = useHistory();
     
     const [fileName, setFileName] = useState<string>("Select an Img");
 
@@ -58,8 +60,10 @@ const Register = () => {
     
         const res = await Axios.post(config.HOST.BACK_END + "/auth/sign-up", formData);
 
-        console.log(res.data);
-    
+        if (res.data.message !== "Registered") return console.log(res.data);
+
+
+        history.push("/sign-in")
     }
 
     return (
