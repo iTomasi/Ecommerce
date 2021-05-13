@@ -3,7 +3,10 @@ import code_numbers from "../config/code_numbers.json";
 import "./scss/form.scss";
 
 const Register = () => {
-    console.log(code_numbers);
+    
+
+
+
     return (
         <form className="iw_form">
             <div className="formSection">
@@ -73,6 +76,11 @@ const Register = () => {
 
                     <input type="text" placeholder="Phone number"/>
                 </div>
+            </div>
+
+            <div className="formSection formFile">
+                <label>IMG</label>
+                <span>Select an Img</span>
             </div>
 
             <button type="submit">Register</button>
