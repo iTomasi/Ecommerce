@@ -70,8 +70,9 @@ $PURPLE_COLOR: #6C28FE;
     .formFile {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 80%;
-        background: red;
+        margin: 0 auto 20px auto;
         
         label {
             background: $PURPLE_COLOR;
