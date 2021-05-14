@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Switch, Route} from "react-router-dom";
+
+// Context
+import {CC_USER} from "./context/ContextUser";
 
 // Components
 import Header from "./components/header/Header";
@@ -11,6 +14,13 @@ import Register from "./views/Register";
 import Category from "./views/Category";
 
 const App = () => {
+
+  const {isAuthenticated} = useContext(CC_USER);
+
+  useEffect(() => {
+    isAuthenticated()
+  }, [])
+
   return (
     <>
     <Header/>

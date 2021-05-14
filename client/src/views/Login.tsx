@@ -26,12 +26,19 @@ const Login = () => {
 
         const formData = new FormData(e.currentTarget);
 
-        const res = await Axios.post(config.HOST.BACK_END + "/auth/sign-in", {
-            email: formData.get("email"),
-            password: formData.get("password")
-        }, {headers: {"Content-Type": "application/json"}})
+        const email = formData.get("email");
+        const password = formData.get("password");
 
-        console.log(res.data)
+        if (!email) return console.log("Email missing")
+        else if (!password) return console.log("Password missing")
+
+
+        const res = await Axios.post(config.HOST.BACK_END + "/auth/sign-in", {email, password}, {headers: {"Content-Type": "application/json"}})
+
+        if (res.data.message !== "Logged") return console.log(res.data);
+
+        localStorage.setItem("token", res.data.token);
+        window.location.href = "/";
 
     }
 

@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useHistory} from "react-router-dom";
+import config from "../../../config/config";
 import "./scss/under.scss";
+
+// Context
+import {CC_USER} from "../../../context/ContextUser";
 
 const Under = () => {
     const history = useHistory();
+
+    const {userDatas} = useContext(CC_USER);
 
     const handleAccountColumn = () => {
         history.push("/sign-in")
@@ -32,8 +38,19 @@ const Under = () => {
             </div>
 
             <div className="column" onClick={handleAccountColumn}>
-                <i className="fas fa-user-circle"></i>
-                <h4>Account</h4>
+                {
+                    userDatas.auth
+                    ? 
+                    <>
+                    <img src={config.HOST.BACK_END + `/file?folder=users&file=${userDatas.token.img}`} alt={userDatas.token.first_name + " " + userDatas.token.last_name}/>
+                    <h4>{userDatas.token.first_name}</h4>
+                    </>
+                    : 
+                    <>
+                    <i className="fas fa-user-circle"></i>
+                    <h4>Account</h4>
+                    </>
+                }
             </div>
         </header>
     )

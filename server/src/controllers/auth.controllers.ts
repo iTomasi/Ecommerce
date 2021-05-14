@@ -9,6 +9,20 @@ import config from "../config/config";
 import removeImg from "../libs/removeImg";
 
 
+export const GET_validateUserToken = (req: Request, res: Response) => {
+    const userToken: any = req.headers["x-access-token"];
+
+    try {
+        const token = jwt.verify(userToken, config.JWT);
+
+        res.json({token, auth: true})
+    }
+
+    catch(e) {
+        res.json({auth: false})
+    }
+}
+
 export const POST_register = async (req: Request, res: Response) => {
     const {first_name, last_name, email, password, confirm_password, country, address, province, city, postal_code, phone_code, phone_number} = req.body;
     let fileName: string = "";
@@ -82,12 +96,13 @@ export const POST_login = async (req: Request, res: Response) => {
         city: user.city,
         postal_code: user.postal_code,
         phone_code: user.phone_code,
+        phone_number: user.phone_number,
         img: user.img
 
     }, config.JWT, {expiresIn: 86400});
 
     res.json({
-        message: "logged",
+        message: "Logged",
         token
     })
 }
