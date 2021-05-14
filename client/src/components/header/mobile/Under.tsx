@@ -10,10 +10,6 @@ const Under = () => {
     const history = useHistory();
 
     const {userDatas} = useContext(CC_USER);
-
-    const handleAccountColumn = () => {
-        history.push("/sign-in")
-    }
     
     return (
         <header className="MB-header-under">
@@ -37,7 +33,11 @@ const Under = () => {
                 <h4>Wishlist</h4>
             </div>
 
-            <div className="column" onClick={handleAccountColumn}>
+            <div className="column" onClick={() => {
+                userDatas.auth
+                ? history.push("/profile")
+                : history.push("/sign-in")
+            }}>
                 {
                     userDatas.auth
                     ? 

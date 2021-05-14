@@ -12,13 +12,19 @@ import Home from "./views/Home";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import Category from "./views/Category";
+import Profile from "./views/Profile";
+
+// Routes
+import RouteAuth from "./routes/RouteAuth.routes";
 
 const App = () => {
 
   const {isAuthenticated} = useContext(CC_USER);
 
   useEffect(() => {
-    isAuthenticated()
+    isAuthenticated();
+
+    // eslint-disable-next-line
   }, [])
 
   return (
@@ -26,10 +32,14 @@ const App = () => {
     <Header/>
     <div className="content">
     <Switch>
+
       <Route exact path="/" component={Home}/>
-      <Route exact path="/sign-in" component={Login}/>
-      <Route exact path="/sign-up" component={Register}/>
       <Route exact path="/category" component={Category}/>
+      <Route exact path="/profile" component={Profile}/>
+      
+      <RouteAuth exact path="/sign-in" component={Login} />
+      <RouteAuth exact path="/sign-up" component={Register}/>
+      
     </Switch>
     </div>
     </>
