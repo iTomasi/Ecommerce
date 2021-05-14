@@ -1,0 +1,23 @@
+.picture {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border-radius: 1000px;
+    }
+
+    h3 {
+        color: #161616;
+    }
+
+    h4 {
+        color: #777777;
+        font-size: 15px;
+    }
+}

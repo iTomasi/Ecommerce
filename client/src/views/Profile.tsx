@@ -1,4 +1,5 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
+import {useHistory} from "react-router-dom";
 import config from "../config/config";
 import countrys from "../config/countrys.json";
 import "./scss/profile.scss";
@@ -6,7 +7,11 @@ import "./scss/profile.scss";
 // Context
 import {CC_USER} from "../context/ContextUser";
 
+// Components
+import Picture from "../components/profile/Picture";
+
 const Profile = () => {
+    const history = useHistory();
 
     const {userDatas} = useContext(CC_USER);
 
@@ -23,11 +28,7 @@ const Profile = () => {
 
     return (
         <div className="profile">
-            <div className="picture">
-                <img src={config.HOST.BACK_END + "/file?folder=users&file=" + userDatas.token.img} alt="xd"/>
-                <h3>{userDatas.token.first_name + " " + userDatas.token.last_name}</h3>
-                <h4>{userDatas.token.email}</h4>
-            </div>
+            <Picture/>
 
             <div className="info">
                 <div>
@@ -40,6 +41,14 @@ const Profile = () => {
             </div>
 
             <hr style={{width: "100%"}}/>
+
+            <div className="options">
+                <h3 onClick={() => history.push("/profile/change-password")}>Change Password</h3>
+                <h3 onClick={() => {
+                    localStorage.removeItem("token");
+                    window.location.href = "/sign-in";
+                }}>Logout</h3>
+            </div>
         </div>
     )
 };

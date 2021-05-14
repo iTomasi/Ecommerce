@@ -105,4 +105,37 @@ export const POST_login = async (req: Request, res: Response) => {
         message: "Logged",
         token
     })
+};
+
+export const POST_changePassword = async (req: Request, res: Response) => {
+    const {current_password, new_password, confirm_password} = req.body;
+    const userToken: any = req.headers["x-access-token"];
+
+    if (!current_password || !new_password || !confirm_password) return res.json({message: "datas missing"})
+    else if (new_password.length <= 4 || confirm_password.length <= 4) return res.json({message: "Your password must contain at less 5 characters"})
+
+    try {
+        const token: any = jwt.verify(userToken, config.JWT);
+
+        const user: any = await Account.findOne({_id: token.id});
+
+        if (!user) return res.json({message: "What the f**k are you doing hacking the website? ndeaah"})
+
+        const compare = await bcrypt.compare(current_password, user.password);
+
+        if (!compare) return res.json({message: "Current password is wrong"});
+
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(new_password, salt);
+
+        await Account.findByIdAndUpdate(user._id, {password: hash});
+
+
+        res.json({message: "Password Updated"})
+
+    }
+
+    catch(e) {
+        res.json({message: "No token provided"})
+    }
 }

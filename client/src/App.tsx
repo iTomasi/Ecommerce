@@ -13,6 +13,7 @@ import Login from "./views/Login";
 import Register from "./views/Register";
 import Category from "./views/Category";
 import Profile from "./views/Profile";
+import ChangePassword from "./views/ChangePassword";
 
 // Routes
 import RouteAuth from "./routes/RouteAuth.routes";
@@ -36,6 +37,7 @@ const App = () => {
       <Route exact path="/" component={Home}/>
       <Route exact path="/category" component={Category}/>
       <Route exact path="/profile" component={Profile}/>
+      <Route exact path="/profile/change-password" component={ChangePassword}/>
       
       <RouteAuth exact path="/sign-in" component={Login} />
       <RouteAuth exact path="/sign-up" component={Register}/>
