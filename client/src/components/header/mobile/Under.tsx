@@ -28,7 +28,7 @@ const Under = () => {
                 <h4>Bag</h4>
             </div>
 
-            <div className="column">
+            <div className="column" onClick={() => history.push("/wishlist")}>
                 <i className="fas fa-heart"></i>
                 <h4>Wishlist</h4>
             </div>

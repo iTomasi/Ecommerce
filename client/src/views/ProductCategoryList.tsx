@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import {useParams} from "react-router-dom";
+import "./scss/productList.scss";
 
 // CONTEXT
 import {CC_PRODUCTS} from "../context/ContextProducts";
@@ -12,9 +13,26 @@ const ProductCategoryList = () => {
 
     const {productCategory} = useContext(CC_PRODUCTS);
 
+    const categoryTitle = () => {
+
+        if (!productCategory[category]) return false
+
+        const categoryKeys = Object.keys(productCategory);
+
+        const getCategory = categoryKeys.filter((cate: any) => cate === category);
+
+        return getCategory[0].replace(/_/g, "-");
+    }
+
     return (
         <div className="productList">
-            <h1>xd</h1>
+            <h1>
+                {
+                    categoryTitle()
+                    ? categoryTitle() + " " + `(${productCategory[category].length})`
+                    : "No exist"
+                }
+            </h1>
 
             {
                 productCategory[category] ?
@@ -26,7 +44,7 @@ const ProductCategoryList = () => {
                     }
                 </div>
 
-                : <h1>Product {category} not found...</h1>
+                : <></>
             }
         </div>
     )

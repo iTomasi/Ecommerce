@@ -16,6 +16,7 @@ import Category from "./views/Category";
 import Profile from "./views/Profile";
 import ChangePassword from "./views/ChangePassword";
 import ProductCategoryList from "./views/ProductCategoryList";
+import WishList from "./views/WishList";
 
 // Routes
 import RouteAuth from "./routes/RouteAuth.routes";
@@ -40,6 +41,7 @@ const App = () => {
       <Route exact path="/" component={Home}/>
       <Route exact path="/category" component={Category}/>
       <Route exact path="/profile" component={Profile}/>
+      <Route exact path="/wishlist" component={WishList}/>
       <Route exact path="/profile/change-password" component={ChangePassword}/>
       <Route exact path="/category/:category" component={ProductCategoryList}/>
       

@@ -1,14 +1,17 @@
 [
     {
         "name": "T-Shirt",
-        "img": "t-shirt.jpg"
+        "img": "t-shirt.jpg",
+        "link": "/category/t_shirt"
     },
     {
         "name": "Jeans",
-        "img": "jeans.jpg"
+        "img": "jeans.jpg",
+        "link": "/category/jeans"
     },
     {
         "name": "Shoes",
-        "img": "shoes.jpg"
+        "img": "shoes.jpg",
+        "link": "/category/shoes"
     }
 ]

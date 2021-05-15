@@ -1,0 +1,44 @@
+.wishCardProduct {
+    display: flex;
+    min-width: 270px;
+    width: 95%;
+    max-width: 850px;
+    border-bottom: 1px solid #111;
+    font-size: 18px;
+    margin-bottom: 2px;
+
+    img {
+        width: 30%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .right {
+        width: 70%;
+        padding: 10px;
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .name {color: #161616}
+
+            .i__trash {color: #777777;}
+        }
+
+        .category {color: #A4A4A4; margin-bottom: 10px;}
+        .price {color: #6C28FE; margin-bottom: 10px;}
+
+        button[type="button"] {
+            background: #6C28FE;
+            width: 100%;
+            border: none;
+            outline: none;
+            color: #f9f9f9;
+            min-height: 40px;
+            font-size: 15px;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import category from "../config/category.json";
 import "./scss/category.scss";
 
 // Components
@@ -7,9 +8,11 @@ import CardCategory from "../components/category/CardCategory";
 const Category = () => {
     return (
         <div className="grid__category">
-            <CardCategory name="Jeans" img="jeans.jpg"/>
-            <CardCategory name="Jeans" img="jeans.jpg"/>
-            <CardCategory name="Jeans" img="jeans.jpg"/>
+            {
+                category.map((cate: any, index: any) => (
+                    <CardCategory key={index} name={cate.name} img={cate.img} link={cate.link} />
+                ))
+            }
         </div>
     )
 };
