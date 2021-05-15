@@ -12,8 +12,11 @@ const ContextProducts = ({children}: any) => {
         shoes: []
     });
 
+    const [wishedProducts, setWishedProducts] = useState<any[]>(JSON.parse(localStorage.getItem("wished") || "[]"));
+
     const getProducts = async () => {
         const res = await Axios.get(config.HOST.BACK_END + "/products");
+        console.log(res.data);
 
         const t_shirt: any = [];
         const jeans: any = [];
@@ -37,9 +40,38 @@ const ContextProducts = ({children}: any) => {
         setProductCategory((prev: any) => ({...prev, t_shirt, jeans, shoes}));
     };
 
+    const addWish = (id: string) => {
+
+        const getProduct = products.filter((product: any) => product._id === id);
+
+
+        if (getProduct[0] === undefined) return false;
+        else if (wishedProducts.findIndex((wished: any) => wished._id === id) !== -1) return false;
+
+        const getWishedList = [...wishedProducts];
+        getWishedList.push(getProduct[0]);
+
+        localStorage.setItem("wished", JSON.stringify(getWishedList));
+        setWishedProducts(getWishedList);
+    }
+
+    const removeWish = (id: string) => {
+        const getProduct = products.filter((product: any) => product._id === id);
+
+        if (getProduct[0] === undefined) return false;
+        else if (wishedProducts.findIndex((wished: any) => wished._id === id) === -1) return false;
+
+        const getWishedList = [...wishedProducts];
+
+        const filtingWishList = getWishedList.filter((wished: any) => wished._id !== id);
+
+        localStorage.setItem("wished", JSON.stringify(filtingWishList));
+        setWishedProducts(filtingWishList);
+    }
+
     return (
         <CC_PRODUCTS.Provider value={{
-            products, productCategory, getProducts
+            products, productCategory, getProducts, wishedProducts, addWish, removeWish
         }}>
             {children}
         </CC_PRODUCTS.Provider>

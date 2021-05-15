@@ -24,9 +24,16 @@
             margin: auto;
 
             i {
-                color: #6C28FE;
                 cursor: pointer;
                 font-size: 25px;
+            }
+
+            .i__heartBlank {
+                color: #6C28FE
+            }
+
+            .i__heartComplete {
+                color: #FE4228
             }
         }
 

@@ -18,7 +18,7 @@ const Home = () => {
         <ProductCarousel title="New in shoes">
             {
                 productCategory.shoes.map((shoes: any) => (
-                    <CardProduct name={shoes.name} category={shoes.category} price={shoes.price} oldPrice={shoes.oldPrice} img={shoes.img} />
+                    <CardProduct id={shoes._id} name={shoes.name} category={shoes.category} price={shoes.price} oldPrice={shoes.oldPrice} img={shoes.img} />
                 ))
             }
 
@@ -27,7 +27,7 @@ const Home = () => {
         <ProductCarousel title="New in Jeans">
             {
                 productCategory.jeans.map((jean: any) => (
-                    <CardProduct name={jean.name} category={jean.category} price={jean.price} oldPrice={jean.oldPrice} img={jean.img}/>
+                    <CardProduct id={jean._id} name={jean.name} category={jean.category} price={jean.price} oldPrice={jean.oldPrice} img={jean.img}/>
                 ))
             }
 
@@ -36,7 +36,7 @@ const Home = () => {
         <ProductCarousel title="New in T-shirt">
             {
                 productCategory.t_shirt.map((tshirt: any) => (
-                    <CardProduct name={tshirt.name} category={tshirt.category} price={tshirt.price} oldPrice={tshirt.oldPrice} img={tshirt.img}/>
+                    <CardProduct id={tshirt._id} name={tshirt.name} category={tshirt.category} price={tshirt.price} oldPrice={tshirt.oldPrice} img={tshirt.img}/>
                 ))
             }
 

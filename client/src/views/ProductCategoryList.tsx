@@ -39,7 +39,7 @@ const ProductCategoryList = () => {
                 <div className="grid__products">
                     {
                         productCategory[category].map((product: any) => (
-                            <CardProduct name={product.name} price={product.price} category={product.category} img={product.img} oldPrice={product.oldPrice} />
+                            <CardProduct id={product._id} name={product.name} price={product.price} category={product.category} img={product.img} oldPrice={product.oldPrice} />
                         ))
                     }
                 </div>

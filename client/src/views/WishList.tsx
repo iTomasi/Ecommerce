@@ -1,17 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./scss/wishList.scss";
+
+// Context
+import {CC_PRODUCTS} from "../context/ContextProducts";
 
 // Components
 import WishCardProduct from "../components/wishlist/WishCardProduct";
 
 const WishList = () => {
+
+    const {wishedProducts} = useContext(CC_PRODUCTS);
+
     return (
         <div className="wishList">
-            <WishCardProduct name="Jean" img="jean_blue.jpg" category={["jeans"]} id="asdljkasd" price={30000}/>
-            <WishCardProduct name="Jean" img="jean_blue.jpg" category={["jeans"]} id="asdljkasd" price={30000}/>
-            <WishCardProduct name="Jean" img="jean_blue.jpg" category={["jeans"]} id="asdljkasd" price={30000}/>
-            <WishCardProduct name="Jean" img="jean_blue.jpg" category={["jeans"]} id="asdljkasd" price={30000}/>
-            <WishCardProduct name="Jean" img="jean_blue.jpg" category={["jeans"]} id="asdljkasd" price={30000}/>
+            {
+                wishedProducts.map((wished: any) => (
+                    <WishCardProduct id={wished._id} name={wished.name} img={wished.img} category={wished.category} price={wished.price}/>
+                ))
+            }
         </div>
     )
 };
