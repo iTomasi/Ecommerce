@@ -1,35 +1,44 @@
-import React from "react";
+import React, {useContext} from "react";
+
+
+// Context
+import {CC_PRODUCTS} from "../context/ContextProducts";
 
 // Components
 import CardProduct from "../components/CardProduct";
 import ProductCarousel from "../components/ProductCarousel";
 
 const Home = () => {
+
+    const {productCategory} = useContext(CC_PRODUCTS);
+
     return (
         <>
         <h1>Home</h1>
         <ProductCarousel title="New in shoes">
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={0} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
-            <CardProduct name="Idk Shoes" category="Shoes" price={40000} oldPrice={45000} img="http://atlas-content-cdn.pixelsquid.com/stock-images/running-shoes-QJGJa6D-600.jpg" />
+            {
+                productCategory.shoes.map((shoes: any) => (
+                    <CardProduct name={shoes.name} category={shoes.category} price={shoes.price} oldPrice={shoes.oldPrice} img={shoes.img} />
+                ))
+            }
+
+        </ProductCarousel>
+
+        <ProductCarousel title="New in Jeans">
+            {
+                productCategory.jeans.map((jean: any) => (
+                    <CardProduct name={jean.name} category={jean.category} price={jean.price} oldPrice={jean.oldPrice} img={jean.img}/>
+                ))
+            }
+
+        </ProductCarousel>
+
+        <ProductCarousel title="New in T-shirt">
+            {
+                productCategory.t_shirt.map((tshirt: any) => (
+                    <CardProduct name={tshirt.name} category={tshirt.category} price={tshirt.price} oldPrice={tshirt.oldPrice} img={tshirt.img}/>
+                ))
+            }
 
         </ProductCarousel>
         </>

@@ -6,14 +6,18 @@ import {BrowserRouter} from "react-router-dom";
 
 // Context Component
 import {ContextUser} from "./context/ContextUser";
+import {ContextProducts} from "./context/ContextProducts";
 
 ReactDOM.render(
   <BrowserRouter>
-    <ContextUser>
+    <ContextProducts>
+      <ContextUser>
 
-      <App/>
-      
-    </ContextUser>
+        <App/>
+
+      </ContextUser>
+    </ContextProducts>
+    
   </BrowserRouter>,
   document.getElementById('root')
 );

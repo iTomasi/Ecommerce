@@ -1,0 +1,130 @@
+[
+    {
+        "name": "Pro Shoes",
+        "category": [
+            "shoes"
+        ],
+        "price": 39990,
+        "oldPrice": 0,
+        "description": "pro shoes 2.0 description",
+        "img": "pro_shoes.jpg",
+        "size": [
+            {
+                "type": "37",
+                "quantity": 20
+            },
+            {
+                "type": "38",
+                "quantity": 30
+            },
+            {
+                "type": "39",
+                "quantity": 30
+            },
+            {
+                "type": "40",
+                "quantity": 30
+            },
+            {
+                "type": "41",
+                "quantity": 30
+            },
+            {
+                "type": "42",
+                "quantity": 30
+            }
+        ]
+    },
+    {
+        "name": "Jean Blue",
+        "category": [
+            "jeans"
+        ],
+        "price": 19990,
+        "oldPrice": 0,
+        "description": "Something jean blue description",
+        "img": "jean_blue.jpg",
+        "size": [
+            {
+                "type": "S",
+                "quantity": 20
+            },
+            {
+                "type": "M",
+                "quantity": 30
+            },
+            {
+                "type": "L",
+                "quantity": 30
+            },
+            {
+                "type": "XL",
+                "quantity": 30
+            }
+        ]
+    },
+    {
+        "name": "T-Shirt Black",
+        "category": [
+            "tshirt"
+        ],
+        "price": 29990,
+        "oldPrice": 0,
+        "description": "Something tshirt black description xdlol",
+        "img": "t-shirt_black.jpg",
+        "size": [
+            {
+                "type": "S",
+                "quantity": 20
+            },
+            {
+                "type": "L",
+                "quantity": 30
+            },
+            {
+                "type": "M",
+                "quantity": 30
+            },
+            {
+                "type": "XL",
+                "quantity": 30
+            },
+            {
+                "type": "XXLL",
+                "quantity": 30
+            }
+        ]
+    },
+    {
+        "name": "T-Shirt Finger",
+        "category": [
+            "tshirt"
+        ],
+        "price": 39990,
+        "oldPrice": 0,
+        "img": "t-shirt_finger.jpg",
+        "description": "something tshirt finger description lolxd x1000 ddeahhh",
+        "size": [
+            {
+                "type": "S",
+                "quantity": 20
+            },
+            {
+                "type": "M",
+                "quantity": 30
+            },
+            {
+                "type": "L",
+                "quantity": 30
+            },
+            {
+                "type": "XL",
+                "quantity": 30
+            },
+            {
+                "type": "XXLL",
+                "quantity": 30
+            }
+        ]
+    }
+]
