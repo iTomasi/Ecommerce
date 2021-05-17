@@ -1,0 +1,26 @@
+.pi_buy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 35px;
+    width: 90%;
+    margin-top: 20px;
+
+    .i__heartBlank {
+        color: #6C28FE;
+    }
+
+    .i__heartComplete {
+        color: #FE4228;
+    }
+
+    button[type="button"] {
+        width: 70%;
+        background: #6C28FE;
+        color: #f9f9f9;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        min-height: 40px;
+    }
+}
