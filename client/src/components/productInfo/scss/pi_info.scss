@@ -25,6 +25,8 @@
             flex-wrap: nowrap;
             width: 95%;
             margin: auto;
+            overflow-x: scroll;
+            padding-bottom: 10px;
 
             button {
                 background: transparent;

@@ -1,0 +1,26 @@
+.pi_quantity {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    max-width: 200px;
+    font-size: 24px;
+    align-items: center;
+    margin: 0 auto 20px auto;
+
+    button {
+        width: 35px;
+        height: 35px;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    .btnPlus {
+        background: #6C28FE;
+    }
+
+    .btnMinus {
+        background: #FE4228;
+    }
+}

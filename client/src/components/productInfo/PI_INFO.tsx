@@ -1,5 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useContext} from "react";
 import "./scss/pi_info.scss";
+
+// Context
+import {CC_PRODUCTS} from "../../context/ContextProducts";
+
+// Components
+import PI_QUANTITY from "./PI_QUANTITY";
 
 interface IPI_INFOProps {
     name: string,
@@ -9,9 +15,9 @@ interface IPI_INFOProps {
 }
 
 const PI_INFO = ({name, price, size, description}: IPI_INFOProps) => {
+    const {sizeSelected, setSizeSelected} = useContext(CC_PRODUCTS);
 
     useEffect(() => {
-        console.log("11")
         if (size[0] !== undefined) {
             setSizeSelected((prev: any) => (
                 {
@@ -21,13 +27,9 @@ const PI_INFO = ({name, price, size, description}: IPI_INFOProps) => {
                 }
             ))
         }
-    }, [size])
 
-    const [sizeSelected, setSizeSelected] = useState<any>({
-        defaultValue: true,
-        size: "xd",
-        quantity: 0,
-    })
+        // eslint-disable-next-line
+    }, [size])
 
     const handleSizeButton = (e: any) => {
         const getSize = e.currentTarget.dataset.type;
@@ -39,7 +41,8 @@ const PI_INFO = ({name, price, size, description}: IPI_INFOProps) => {
             {
                 ...prev,
                 size: getSize,
-                quantity: parseInt(getQuantity)
+                quantity: parseInt(getQuantity),
+                userQuantity: 1
             }
         ))
     }
@@ -67,6 +70,8 @@ const PI_INFO = ({name, price, size, description}: IPI_INFOProps) => {
                     ))}
                 </div>
             </div>
+
+            <PI_QUANTITY/>
 
             <div className="description">
                 <p>{description}</p>

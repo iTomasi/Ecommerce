@@ -12,17 +12,16 @@ import PI_BUY from "../components/productInfo/PI_BUY";
 
 const ProductInfo = () => {
     const {id}: any = useParams();
-    const {filterProduct, products, productInfo} = useContext(CC_PRODUCTS);
+    const {filterProduct, products, productInfo, sizeSelected, addBag} = useContext(CC_PRODUCTS);
 
     useEffect(() => {
         filterProduct(id);
 
-        console.log(productInfo)
         // eslint-disable-next-line
     }, [products, productInfo])
 
     const handleBuyButton = () => {
-        console.log("buy btn!")
+        addBag(id, sizeSelected.userQuantity, sizeSelected.size);
     }
 
     return (
