@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import {useHistory} from "react-router-dom";
-import config from "../config/config";
 import countrys from "../config/countrys.json";
 import "./scss/profile.scss";
 

@@ -49,7 +49,9 @@ export const POST_register = async (req: Request, res: Response) => {
 
     const checkingIfEmailExist = await Account.find({email});
 
-    if (checkingIfEmailExist) {
+    console.log(checkingIfEmailExist);
+
+    if (checkingIfEmailExist[0] !== undefined) {
         res.json({message: "Email registered"});
         removeImg(fileName);
         return

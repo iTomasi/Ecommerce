@@ -11,6 +11,17 @@ const ContextProducts = ({children}: any) => {
         jeans: [],
         shoes: []
     });
+    const [productInfo, setProductInfo] = useState<any>({
+        _id: "",
+        name: "",
+        category: [],
+        price: 0,
+        oldPrice: 0,
+        imgs: [],
+        description: "",
+        size: []
+
+    });
 
     const [wishedProducts, setWishedProducts] = useState<any[]>(JSON.parse(localStorage.getItem("wished") || "[]"));
 
@@ -39,6 +50,14 @@ const ContextProducts = ({children}: any) => {
         setProducts(res.data);
         setProductCategory((prev: any) => ({...prev, t_shirt, jeans, shoes}));
     };
+
+    const filterProduct = (id: string) => {
+        const filtingProduct = products.filter((product: any) => product._id === id);
+
+        if (filtingProduct[0] === undefined) return;
+
+        setProductInfo(filtingProduct[0]);
+    }
 
     const addWish = (id: string) => {
 
@@ -71,7 +90,7 @@ const ContextProducts = ({children}: any) => {
 
     return (
         <CC_PRODUCTS.Provider value={{
-            products, productCategory, getProducts, wishedProducts, addWish, removeWish
+            products, productCategory, getProducts, wishedProducts, addWish, removeWish, filterProduct, productInfo
         }}>
             {children}
         </CC_PRODUCTS.Provider>

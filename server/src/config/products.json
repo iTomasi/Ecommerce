@@ -7,7 +7,7 @@
         "price": 39990,
         "oldPrice": 0,
         "description": "pro shoes 2.0 description",
-        "img": "pro_shoes.jpg",
+        "imgs": ["pro_shoes.jpg"],
         "size": [
             {
                 "type": "37",
@@ -43,7 +43,7 @@
         "price": 19990,
         "oldPrice": 0,
         "description": "Something jean blue description",
-        "img": "jean_blue.jpg",
+        "imgs": ["jean_blue.jpg"],
         "size": [
             {
                 "type": "S",
@@ -71,7 +71,7 @@
         "price": 29990,
         "oldPrice": 0,
         "description": "Something tshirt black description xdlol",
-        "img": "t-shirt_black.jpg",
+        "imgs": ["t-shirt_black.jpg"],
         "size": [
             {
                 "type": "S",
@@ -102,7 +102,7 @@
         ],
         "price": 39990,
         "oldPrice": 0,
-        "img": "t-shirt_finger.jpg",
+        "imgs": ["t-shirt_finger.jpg"],
         "description": "something tshirt finger description lolxd x1000 ddeahhh",
         "size": [
             {

@@ -23,7 +23,7 @@ const Under = () => {
                 <h4>Category</h4>
             </div>
 
-            <div className="column">
+            <div className="column" onClick={() => history.push("/bag")}>
                 <i className="fas fa-shopping-bag"></i>
                 <h4>Bag</h4>
             </div>

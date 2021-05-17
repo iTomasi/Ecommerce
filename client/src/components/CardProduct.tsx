@@ -1,4 +1,5 @@
 import React, {useContext} from "react";
+import {useHistory} from "react-router-dom";
 import config from "../config/config";
 import "./scss/cardProduct.scss";
 
@@ -16,6 +17,7 @@ interface ICardProduct {
 }
 
 const CardProduct = ({id, img, name, category, price, oldPrice}: ICardProduct) => {
+    const history = useHistory();
 
     const {addWish, removeWish, wishedProducts} = useContext(CC_PRODUCTS);    
 
@@ -36,11 +38,17 @@ const CardProduct = ({id, img, name, category, price, oldPrice}: ICardProduct) =
         return true;
     }
 
+    const handlePushProduct = (e: any) => {
+        if (e.target.tagName === "I") return
+
+        history.push("/product/" + id)
+    }
+
     // <i class="fas fa-heart"></i> favorite
     // <i class="far fa-heart"></i> no favorite
 
     return (
-        <div className="cardProduct">
+        <div className="cardProduct" onClick={handlePushProduct}>
             <img src={config.HOST.BACK_END + "/file?folder=products&file=" + img} alt={name}/>
 
             <div className="cardProduct__info">

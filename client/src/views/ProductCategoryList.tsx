@@ -29,7 +29,7 @@ const ProductCategoryList = () => {
             <h1>
                 {
                     categoryTitle()
-                    ? categoryTitle() + " " + `(${productCategory[category].length})`
+                    ? `${categoryTitle()} (${productCategory[category].length})`
                     : "No exist"
                 }
             </h1>
@@ -39,7 +39,7 @@ const ProductCategoryList = () => {
                 <div className="grid__products">
                     {
                         productCategory[category].map((product: any) => (
-                            <CardProduct id={product._id} name={product.name} price={product.price} category={product.category} img={product.img} oldPrice={product.oldPrice} />
+                            <CardProduct id={product._id} name={product.name} price={product.price} category={product.category} img={product.imgs[0]} oldPrice={product.oldPrice} />
                         ))
                     }
                 </div>
