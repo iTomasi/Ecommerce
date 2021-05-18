@@ -11,23 +11,23 @@ const ContextUser = ({children}: any) => {
     });
 
     const isAuthenticated = async () => {
-        const res = await Axios({
-            method: "GET",
-            url: config.HOST.BACK_END + "/auth/",
-            headers: {"x-access-token": localStorage.getItem("token")}
-        });
+        try {
+            const res = await Axios.get(config.HOST.BACK_END + "/auth/", {
+                headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}
+            });
 
-        if (!res.data.auth) {
+            if (!res.data.auth) return;
+
+            console.log(res.data);
+            setUserDatas(res.data);
+        }
+
+        catch(e) {
+            console.log("?");
             setUserDatas((prev: any) => (
-                {
-                    ...prev,
-                    auth: false
-                }
-            ));
-            return
-        };
-
-        setUserDatas(res.data)
+                {...prev, auth: false}
+            ))
+        }
     };
 
     return (

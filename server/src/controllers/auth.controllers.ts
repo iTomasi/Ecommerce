@@ -10,17 +10,7 @@ import removeImg from "../libs/removeImg";
 
 
 export const GET_validateUserToken = (req: Request, res: Response) => {
-    const userToken: any = req.headers["x-access-token"];
-
-    try {
-        const token = jwt.verify(userToken, config.JWT);
-
-        res.json({token, auth: true})
-    }
-
-    catch(e) {
-        res.json({auth: false})
-    }
+    return res.json({token: req.user, auth: true});
 }
 
 export const POST_register = async (req: Request, res: Response) => {
