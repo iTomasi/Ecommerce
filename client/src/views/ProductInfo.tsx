@@ -21,7 +21,7 @@ const ProductInfo = () => {
     }, [products, productInfo])
 
     const handleBuyButton = () => {
-        addBag(id, sizeSelected.userQuantity, sizeSelected.size);
+        addBag(id, sizeSelected.userQuantity, sizeSelected.size, sizeSelected.quantity);
     }
 
     return (

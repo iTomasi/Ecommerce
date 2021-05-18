@@ -1,0 +1,67 @@
+.bagCardProduct {
+    display: flex;
+    font-size: 17px;
+    width: 95%;
+    margin: 0 auto 20px auto;
+
+    img {
+        min-height: 170px;
+        width: 30%;
+        object-fit: cover;
+    }
+
+    .info {
+        width: 70%;
+        padding: 0 0 0 10px;
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+
+            .category {
+                text-transform: capitalize;
+            }
+    
+            .name {color: #121212;}
+            .price {color: #6C28FE;}
+            .category, .oldPrice {color: #A4A4A4}
+        }
+
+        .size_quantity {
+            display: flex;
+            margin-top: 15px;
+
+            .left {
+                display: flex;
+                justify-content: space-between;
+                width: 70%;
+                max-width: 150px;
+
+                h4 {
+                    font-size: 18px;
+                    margin-bottom: 5px;
+                }
+
+                h5, select {font-size: 17px;}
+            }
+
+            .right {
+                width: 30%;
+                text-align: right;
+
+                .i__trash {
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width: 340px) {
+    .bagCardProduct {
+        .size_quantity {
+            justify-content: space-between;
+        }
+    }
+}

@@ -90,7 +90,7 @@ const ContextProducts = ({children}: any) => {
         setWishedProducts(filtingWishList);
     }
 
-    const addBag = (id: string, quantity: number, size: string) => {
+    const addBag = (id: string, quantity: number, size: string, storageQuantity: number) => {
         const getProduct = products.filter((product: any) => product._id === id);
 
         if (getProduct[0] === undefined) return false;
@@ -104,8 +104,6 @@ const ContextProducts = ({children}: any) => {
         const copyBag = [...bagProducts];
         const indexProductBag = copyBag.findIndex((product: any) => product.id === id);
 
-        console.log(indexProductBag);
-
         if (indexProductBag === -1) {
             copyBag.push({
                 id: getProduct[0]._id,
@@ -114,7 +112,7 @@ const ContextProducts = ({children}: any) => {
                 price: getProduct[0].price,
                 oldPrice: getProduct[0].oldPrice,
                 img: getProduct[0].imgs[0],
-                sizes: [{size, quantity}]
+                sizes: [{size, quantity, storageQuantity}]
             });
 
             localStorage.setItem("bag", JSON.stringify(copyBag));
@@ -128,7 +126,7 @@ const ContextProducts = ({children}: any) => {
 
         if (indexBagSizes === -1) {
             getBagSizes.push({
-                size, quantity
+                size, quantity, storageQuantity
             });
             localStorage.setItem("bag", JSON.stringify(copyBag))
             setBagProducts(copyBag);
@@ -142,10 +140,37 @@ const ContextProducts = ({children}: any) => {
         
     }
 
+    const editBagQuantity = (id: string, sizeType: string, quantity: number) => {
+        const copyBag = [...bagProducts];
+
+        const indexProductBag = copyBag.findIndex((product: any) => product.id === id);
+
+        const getSizes = copyBag[indexProductBag].sizes;
+        const indexSizeBag = getSizes.findIndex((size: any) => size.size === sizeType);
+
+        getSizes[indexSizeBag].quantity = quantity;
+
+        localStorage.setItem("bag", JSON.stringify(copyBag));
+        setBagProducts(copyBag);
+    }
+
+    const removeBagSize = (id: string, size: string) => {
+        const copyBag = [...bagProducts];
+
+        const indexProductBag = copyBag.findIndex((product: any) => product.id === id);
+        const getSizes = copyBag[indexProductBag].sizes;
+        const filtingSizes = getSizes.filter((productSize: any) => productSize.size !== size);
+
+        copyBag[indexProductBag].sizes = filtingSizes;
+
+        localStorage.setItem("bag", JSON.stringify(copyBag));
+        setBagProducts(copyBag);
+    }
+
 
     return (
         <CC_PRODUCTS.Provider value={{
-            products, productCategory, getProducts, wishedProducts, addWish, removeWish, filterProduct, productInfo, sizeSelected, setSizeSelected, bagProducts, addBag
+            products, productCategory, getProducts, wishedProducts, addWish, removeWish, filterProduct, productInfo, sizeSelected, setSizeSelected, bagProducts, addBag, editBagQuantity, removeBagSize
         }}>
             {children}
         </CC_PRODUCTS.Provider>
