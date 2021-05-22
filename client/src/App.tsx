@@ -19,9 +19,11 @@ import ProductCategoryList from "./views/ProductCategoryList";
 import WishList from "./views/WishList";
 import Bag from "./views/Bag";
 import ProductInfo from "./views/ProductInfo";
+import Order from "./views/Order";
 
 // Routes
 import RouteAuth from "./routes/RouteAuth.routes";
+import RouteUser from "./routes/RouteUser.routes";
 
 const App = () => {
 
@@ -51,6 +53,8 @@ const App = () => {
       
       <RouteAuth exact path="/sign-in" component={Login} />
       <RouteAuth exact path="/sign-up" component={Register}/>
+
+      <RouteUser exact path="/order" component={Order} query="order"/>
       
     </Switch>
     </div>

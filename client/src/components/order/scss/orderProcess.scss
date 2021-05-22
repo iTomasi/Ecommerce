@@ -1,0 +1,54 @@
+.orderProcess {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+
+    .one, .two, .three {
+        width: 15%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        h3 {
+            background: #6C28FE;
+            color: #f9f9f9;
+            border-radius: 1000%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .delivery {
+            margin-left: 5px;
+        }
+
+        h4 {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 40px;
+        }
+    }
+
+    .line-1, .line-2 {
+        width: 27.5%;
+        background: #C8C8C8;
+        height: 5px;
+        margin: 0 10px;
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .orderProcess {
+        .one {
+            .delivery {
+                margin-left: 0;
+            }
+        }
+    }
+}

@@ -1,10 +1,12 @@
 import React, {useContext} from "react";
+import {useHistory} from "react-router-dom";
 import "./scss/checkout.scss";
 
 // CONTEXT
 import {CC_PRODUCTS} from "../../context/ContextProducts";
 
 const Checkout = () => {
+    const history = useHistory();
 
     const {bagProducts} = useContext(CC_PRODUCTS);
 
@@ -27,6 +29,10 @@ const Checkout = () => {
         return count;
     }
 
+    const handleCheckout = () => {
+        history.push("/order")
+    }
+
     return (
         <div className="checkout">
             <div className="flex">
@@ -41,7 +47,7 @@ const Checkout = () => {
                 <h3>${subTotal()}</h3>
             </div>
 
-            <button type="button">CHECKOUT</button>
+            <button type="button" onClick={handleCheckout}>CHECKOUT</button>
         </div>
     )
 };

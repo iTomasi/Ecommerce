@@ -1,5 +1,5 @@
 import React, {useState, useRef} from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import Axios from "axios";
 import config from "../config/config";
 import "./scss/form.scss";
@@ -9,7 +9,12 @@ interface IShowPassword {
     display: boolean
 }
 
+const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+}
+
 const Login = () => {
+    const query = useQuery();
 
     const eyesIcon = useRef({hide: "fas fa-eye-slash", unhide: "fas fa-eye"})
 
@@ -38,8 +43,11 @@ const Login = () => {
         if (res.data.message !== "Logged") return console.log(res.data);
 
         localStorage.setItem("token", res.data.token);
-        window.location.href = "/";
+        
+        if (!query.get("page")) return window.location.href = "/";
 
+        window.location.href = `/${query.get("page")}`;
+        
     }
 
     return (
